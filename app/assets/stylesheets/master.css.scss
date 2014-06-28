@@ -1,7 +1,7 @@
 @import "bootstrap";
 
 body {
-  margin-top: 70px;
+  margin-top: 50px;
 }
 
 .navbar {
@@ -17,4 +17,40 @@ body {
   font-weight: 300;
   font-size: 30px;
   color: white;
+}
+
+.hero {
+  background: url('computer_keyboard.jpg') no-repeat center fixed;
+  ‐webkit‐background‐size:cover; 
+  ‐moz‐background‐size:cover;
+  ‐o‐background‐size:cover;
+  background‐size:cover;
+  height: 600px;
+  box-shadow: 0px 3px 8px #2a2a2a;
+}
+
+h1, h2, h3, h4, h5, h6, .navbar {
+  margin: 0;
+}
+
+.frosty {
+  background: rgba(0, 0, 0, 0.5);
+  color: white;
+  text-align: center;
+}
+
+.frosty h1 {
+  font-family: "Helvetica Neue", Helvetica, sans-serif;
+  font-weight: 100;
+  text-shadow: rgba(0, 0, 0, 0.95) 1px 1px;
+}
+
+.frosty h2 {
+  font-family: "Helvetica Neue", Helvetica, sans-serif;
+  font-weight: 200;
+  text-shadow: rgba(0, 0, 0, 0.95) 1px 1px;
+}
+
+.btn {
+  border-radius: 2px;
 }
