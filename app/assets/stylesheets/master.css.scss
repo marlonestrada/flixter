@@ -2,25 +2,41 @@
 
 $footer-height: 100px;
 
-html,
-body {
-  height: 100%;
-  /* The html and body elements cannot have any padding or margin. */
-}
+// * {
+//   margin: 0;
+// }
 
-/* Wrapper for page content to push down footer */
-#wrap {
-  min-height: 100%;
-  height: auto;
-  /* Negative indent footer by its height */
-  margin: 0 auto -$footer-height;
-  /* Pad bottom by footer height */
-  padding-bottom: $footer-height;
-}
+// html,
+// body {
+//   height: 100%;
+//   /* The html and body elements cannot have any padding or margin. */
+// }
+
+// /* Wrapper for page content to push down footer */
+// #wrap {
+//   min-height: 100%;
+//   Negative indent footer by its height
+//   margin-bottom: -($footer-height);
+//   /* Pad bottom by footer height */
+//   // padding-bottom: $footer-height;
+// }
+
+// #wrap:after {
+//   content: "";
+//   display: block;
+// }
+
+// #footer, #wrap:after {
+//   height: $footer-height;
+// }
 
 /* Set the fixed height of the footer here */
-#footer {
+footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
   height: $footer-height;
+  width: 100%;
   color: white;
   background-color: rgba(36,32,33,0.9);
   font-family: "Helvetica Neue",Helvetica, sans-serif;
@@ -28,14 +44,22 @@ body {
   margin-top: 30px;
 }
 
-#footer a {
+footer a {
   color: white;
   font-weight: 100;
 }
 
 body {
+  padding-top: 50px;
   background: url('bg.png');
   font-family: "Palatino Linotype", Palatino, Palladio, "URW Palladio L", "Book Antiqua", Baskerville, "Bookman Old Style", "Bitstream Charter", "Nimbus Roman No9 L", Garamond, "Apple Garamond", "ITC Garamond Narrow", "New Century Schoolbook", "Century Schoolbook", "Century Schoolbook L", Georgia, serif;
+  margin-bottom: ($footer-height+10px);
+}
+
+body:after {
+  content: "";
+  display: block;
+  height: $footer-height;
 }
 
 .navbar {
@@ -102,4 +126,16 @@ h1, h2, h3, h4, h5, h6, .navbar {
 
 .booyah-box h1, .booyah-box h2 {
   margin: 10px;
+}
+
+.booyah-box form h1, .booyah-box form h2 {
+  margin: 10px 0;
+}
+
+.booyah-box form {
+  padding: 20px;
+}
+
+.clear {
+  clear: both;
 }
