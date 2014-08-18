@@ -10,6 +10,16 @@
         });
       }
     });
+    $('.sections').sortable({
+      update: function( event, ui ) {
+        $.ajax({
+          type: 'PUT',
+          url: ui.item.data('update-url'),
+          dataType: 'json',
+          data: { section: { row_order_position: ui.item.index() } }
+        });
+      }
+    });
    });
 </script>
 <br>
@@ -23,31 +33,34 @@
   <div class="text-center">
     <%= link_to 'Add a new section...', new_instructor_course_section_path(current_course), :class => 'btn btn-primary btn-lg' %>
   </div>
-  <br>
-  <% current_course.sections.each do |section| %>
-    <div class="section">
-      <div class="header pull-left">
-        <i class="fa fa-ellipsis-v"></i>
-        <%= section.title %>
-      </div>
-      <%= link_to 'New Lesson', new_instructor_section_lesson_path(section), :class => 'pull-right btn btn-primary btn-xs' %>
-      <br class="clear">
-      <br>
-      <div class="lessons">
-        <% section.lessons.rank(:row_order).each do |lesson| %>
-          <div data-update-url="<%= instructor_lesson_path(lesson) %>">
-            <div class="row">
-              <div class="col-sm-12 text-center">
-                <i class="fa fa-ellipsis-v pull-left"></i>
-                <p><strong><%= lesson.title %></strong></p>
-                <p><%= lesson.subtitle %></p>
-              </div>
-            </div>
+  <div class="sections">
+    <% current_course.sections.rank(:row_order).each do |section| %>
+      <div data-update-url="<%= instructor_section_path(section) %>">
+        <div class="section">
+          <div class="header pull-left">
+            <i class="fa fa-ellipsis-v"></i>
+            <%= section.title %>
           </div>
-        <% end %>
+          <%= link_to 'New Lesson', new_instructor_section_lesson_path(section), :class => 'pull-right btn btn-primary btn-xs' %>
+          <br class="clear">
+          <br>
+          <div class="lessons">
+            <% section.lessons.rank(:row_order).each do |lesson| %>
+              <div data-update-url="<%= instructor_lesson_path(lesson) %>">
+                <div class="row">
+                  <div class="col-sm-12 text-center">
+                    <i class="fa fa-ellipsis-v pull-left"></i>
+                    <p><strong><%= lesson.title %></strong></p>
+                    <p><%= lesson.subtitle %></p>
+                  </div>
+                </div>
+              </div>
+            <% end %>
+          </div>
+        </div>
       </div>
-    </div>
-    <br class="clear">
-  <% end %>
+      <div class="clear"></div>
+    <% end %>
+  </div>
   <br>
 </div>
