@@ -1,7 +1,6 @@
 @import "bootstrap";
 
 body {
-  // padding-top: 50px;
   background: url('bg.png');
   font-family: "Palatino Linotype", Palatino, Palladio, "URW Palladio L", "Book Antiqua", Baskerville, "Bookman Old Style", "Bitstream Charter", "Nimbus Roman No9 L", Garamond, "Apple Garamond", "ITC Garamond Narrow", "New Century Schoolbook", "Century Schoolbook", "Century Schoolbook L", Georgia, serif;
 }
@@ -23,7 +22,7 @@ body {
 
 .hero {
   background: url('computer_keyboard.jpg') no-repeat center fixed;
-  ‐webkit‐background‐size:cover; 
+  ‐webkit‐background‐size:cover;
   ‐moz‐background‐size:cover;
   ‐o‐background‐size:cover;
   background‐size:cover;
@@ -108,4 +107,37 @@ h1, h2, h3, h4, h5, h6, .navbar {
   border: 1px solid;
   border-color: #e4e4e4 #bebebd #bebebd #e4e4e4;
   padding: 20px;
+}
+
+ul {
+  list-style-type: none;
+}
+
+.section .header {
+  font-size:25px;
+}
+
+.section .header .fa {
+  font-size:20px;
+}
+
+.lessons > div {
+  background: black;
+  color: lightgray;
+  margin: 10px;
+  font-family: "Helvetica Neue", Helvetica;
+  font-weight: 100;
+  padding: 8px;
+  font-size: 15px;
+  margin: 10px 20px;
+  border-radius: 4px;
+}
+
+.lessons div strong {
+  font-size: 25px;
+  font-weight: 100;
+}
+
+.lessons div p {
+  margin: 0;
 }

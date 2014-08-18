@@ -14,21 +14,21 @@
 </head>
 <body>
   <div id="wrap">
- 
-    <nav class="navbar navbar-inverse" role="navigation"> 
+
+    <nav class="navbar navbar-inverse" role="navigation">
       <div class="container-fluid">
-        <!-- Brand and toggle get grouped for better mobile display --> 
+        <!-- Brand and toggle get grouped for better mobile display -->
         <div class="navbar-header">
           <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#flixter-top-navbar-collapse-1">
-            <span class="sr-only">Toggle navigation</span> 
+            <span class="sr-only">Toggle navigation</span>
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
           <%= link_to 'Flixter', root_path, :class => 'navbar-brand' %>
-          <!-- <a class="navbar-brand" href="#">Flixter</a> --> 
+          <!-- <a class="navbar-brand" href="#">Flixter</a> -->
         </div>
-        <!-- Collect the nav links, forms, and other content for toggling --> 
+        <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="flixter-top-navbar-collapse-1">
           <ul class="nav navbar-nav">
             <li><%= link_to 'See All Courses', courses_path %></li>
@@ -42,7 +42,7 @@
             <% end %>
           </ul>
         </div><!-- /.navbar-collapse -->
-      </div><!-- /.container-fluid --> 
+      </div><!-- /.container-fluid -->
     </nav>
     <div class="clear"></div>
 
@@ -56,6 +56,7 @@
   <%= yield %>
 </div> <!-- end #wrap -->
 <br class="clear">
+<br>
 
   <div id="footer">
     <div class="container">
@@ -64,6 +65,6 @@
       <%= link_to 'Teach a Course', new_instructor_course_path %>
     </div>
   </div>
-  
+
 </body>
 </html>
