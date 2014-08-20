@@ -5,6 +5,9 @@ Flixter::Application.routes.draw do
 
   # You can have the root of your site routed with "root"
   root 'static_pages#index'
+  get 'privacy', to: 'static_pages#privacy'
+  get 'team', to: 'static_pages#team'
+  get 'careers', to: 'static_pages#careers'
   resource :dashboards, only: [:show]
   resources :courses, only: [:index, :show] do
     resources :enrollments, only: [:create]
