@@ -61,9 +61,43 @@
 
   <div id="footer">
     <div class="container">
-      <b>Teachers</b>
-      <br />
-      <%= link_to 'Teach a Course', new_instructor_course_path %>
+      <div class="col-sm-3">
+        <strong>Teachers</strong>
+        <br>
+        <%= link_to 'Teach a Course', new_instructor_course_path %>
+        <br>
+        <%= link_to 'My Dashboard', dashboards_path %>
+      </div>
+      <div class="col-sm-3">
+        <strong>About</strong>
+        <br>
+        <%= link_to 'Team', '#' %>
+        <br>
+        <%= link_to 'Careers', '#' %>
+        <br>
+        <%= link_to 'Privacy Policy', '#' %>
+      </div>
+      <div class="col-sm-3">
+        <strong>Contact</strong>
+        <br>
+        info@flixter.com
+        <br>
+        Somewhere Downtown
+        <br>
+        Seattle, WA
+      </div>
+      <div class="col-sm-3 social">
+        <strong>Social</strong><br>
+        <%= link_to 'https://github.com' do %>
+          <i class="fa fa-github fa-2x social-button"></i>
+        <% end %>
+        <%= link_to 'https://www.facebook.com' do %>
+          <i class="fa fa-facebook-square fa-2x social-button"></i>
+        <% end %>
+        <%= link_to 'https://www.twitter.com' do %>
+          <i class="fa fa-twitter fa-2x social-button"></i>
+        <% end %>
+      </div>
     </div>
   </div>
 
