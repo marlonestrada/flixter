@@ -55,6 +55,11 @@ h1, h2, h3, h4, h5, h6, .navbar {
 
 .btn {
   border-radius: 2px;
+  margin: 10px 5px;
+}
+
+.btn-lesson {
+  margin-top: 0;
 }
 
 .booyah-box {
@@ -101,6 +106,10 @@ h1, h2, h3, h4, h5, h6, .navbar {
 .lesson a strong {
   font-weight: 100;
   font-size: 25px;
+}
+
+.lesson-subtitle {
+  margin-left: 10px;
 }
 
 .section {
