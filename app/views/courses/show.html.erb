@@ -12,7 +12,6 @@
       <%= link_to 'Administer', instructor_course_path(@course), class: 'btn btn-danger btn-large' %>
     <% end %>
     <br>
-    <br>
     <% if current_user && current_user.enrolled_in?(@course) %>
       <h3><span class="label label-info">You are Enrolled!</span></h3>
     <% else %>
@@ -52,7 +51,7 @@
             </div>
           </div>
         <% end %>
-        <br class="clear">
+        <div class="clear"></div>
       </div>
     <% end %>
   </div>
