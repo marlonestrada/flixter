@@ -11,6 +11,7 @@ Flixter::Application.routes.draw do
   resource :dashboards, only: [:show]
   resources :courses, only: [:index, :show] do
     resources :enrollments, only: [:create]
+    resources :comments, only: [:create]
   end
   resources :lessons, only: [:show]
   namespace :instructor do
