@@ -1,28 +1,61 @@
 <br>
-<div class="booyah-box col-sm-10 col-sm-offset-1">
-  <h1 class><%= current_lesson.title %></h1>
-  <h4 class="pull-left lesson-subtitle"><%= current_lesson.subtitle %></h4>
+<div class="col-sm-9">
+  <div class="booyah-box col-sm-12">
+    <h1 class><%= current_lesson.title %></h1>
+    <h4 class="pull-left lesson-subtitle"><%= current_lesson.subtitle %></h4>
 
-  <% if current_lesson.next_lesson.present? %>
-    <%= link_to lesson_path(current_lesson.next_lesson), :class => 'btn btn-default btn-lesson pull-right' do %>
-      Next Lesson &nbsp;
-      <span class="glyphicon glyphicon-forward"></span>
+    <% if current_lesson.next_lesson.present? %>
+      <%= link_to lesson_path(current_lesson.next_lesson), :class => 'btn btn-default btn-lesson pull-right' do %>
+        Next Lesson &nbsp;
+        <span class="glyphicon glyphicon-forward"></span>
+      <% end %>
     <% end %>
-  <% end %>
 
-  <% if current_lesson.previous_lesson.present? %>
-    <%= link_to lesson_path(current_lesson.previous_lesson), :class => 'btn btn-default btn-lesson pull-right' do %>
-      <span class="glyphicon glyphicon-backward"></span>
-      &nbsp; Previous Lesson
+    <% if current_lesson.previous_lesson.present? %>
+      <%= link_to lesson_path(current_lesson.previous_lesson), :class => 'btn btn-default btn-lesson pull-right' do %>
+        <span class="glyphicon glyphicon-backward"></span>
+        &nbsp; Previous Lesson
+      <% end %>
     <% end %>
-  <% end %>
 
-  <div class="clear"></div>
+    <div class="clear"></div>
 
-  <video id="MY_VIDEO_1" class="video-js vjs-default-skin vjs-big-play-centered" controls
-  preload="auto" width="auto" height="auto" poster="/assets/black.jpg"
-  data-setup="{}">
-  <source src="<%= current_lesson.video.to_s %>" type='video/mp4'>
-  <p class="vjs-no-js">To view this video please enable JavaScript, and consider upgrading to a web browser that <a href="http://videojs.com/html5-video-support/" target="_blank">supports HTML5 video</a></p>
-  </video>
+    <video id="MY_VIDEO_1" class="video-js vjs-default-skin vjs-big-play-centered" controls
+    preload="auto" width="auto" height="auto" poster="/assets/black.jpg"
+    data-setup="{}">
+    <source src="<%= current_lesson.video.to_s %>" type='video/mp4'>
+    <p class="vjs-no-js">To view this video please enable JavaScript, and consider upgrading to a web browser that <a href="http://videojs.com/html5-video-support/" target="_blank">supports HTML5 video</a></p>
+    </video>
+  </div>
+</div>
+<div class="col-sm-3">
+  <div class="booyah-box col-sm-12 text-center">
+    <h3>Do you have a question?</h3>
+    <br>
+    <!-- Button trigger modal -->
+    <button class="btn btn-success btn-lg" data-toggle="modal" data-target="#myModal">
+      Start a Discussion
+    </button>
+  </div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h4 class="modal-title" id="myModalLabel">Add a Comment</h4>
+      </div>
+      <div class="modal-body">
+        <%#= simple_form_for @comment, :url => course_comments_path(@course) do |f| %>
+          <%#= f.input :message %>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <%#= f.submit "Add a Comment", :class => 'btn btn-primary' %>
+      </div>
+      <%# end %>
+    </div>
+  </div>
 </div>
