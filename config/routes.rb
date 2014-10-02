@@ -14,6 +14,7 @@ Flixter::Application.routes.draw do
   resources :courses, only: [:index, :show] do
     resources :enrollments, only: [:create]
     resources :comments, only: [:create]
+    resources :topics, only: [:new, :create]
   end
   resources :topics do
     resources :posts, only: [:new, :create]

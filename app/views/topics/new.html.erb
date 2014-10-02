@@ -1,0 +1,9 @@
+<div class="booyah-box col-sm-6 col-sm-offset-3">
+  <h1>Add A New Topic</h1>
+  <%= simple_form_for @topic, :url => course_topics_path(@course) do |f| %>
+    <%= f.input :name %>
+    <br />
+    <%= f.submit "Create Topic", :class => 'btn btn-primary' %>
+    <br />
+  <% end %>
+</div>

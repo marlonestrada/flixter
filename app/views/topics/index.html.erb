@@ -6,14 +6,14 @@
         <% unless course.topics.empty? %>
           <hr class="clear">
           <% if course.user == current_user %>
-            <%= link_to "Add Topic", '#', class: "btn btn-primary btn-xs btn-lesson pull-right" %>
+            <%= link_to "Add Topic", new_course_topic_path(course), class: "btn btn-primary btn-xs btn-lesson pull-right" %>
           <% end %>
           <h3><%= course.title %></h3>
           <ul>
             <% course.topics.each do |topic| %>
               <li class="clear">
                 <% if course.user == current_user %>
-                  <%= link_to "Delete Topic", '#', class: "btn btn-danger btn-lesson btn-xs pull-right" %>
+                  <%= link_to "Delete Topic", topic_path(topic), method: :delete, class: "btn btn-danger btn-lesson btn-xs pull-right" %>
                 <% end %>
                 <h4><%= link_to topic.name, topic_path(topic) %></h4>
               </li>
@@ -23,3 +23,7 @@
       <% end %>
     </div>
   </div>
+
+
+
+
