@@ -16,3 +16,4 @@
 // Loads all Bootstrap javascripts
 //= require bootstrap
 //= require jquery-ui
+//= require ckeditor/init

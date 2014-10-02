@@ -1,0 +1,52 @@
+<div class="booyah-box col-sm-10 col-sm-offset-1">
+  <h1><%= @topic.name %></h1>
+  <br>
+
+  <div class="col-sm-8 col-sm-offset-1">
+    <h3>Title</h3>
+  </div>
+  <div class="col-sm-2 text-center">
+    <h3>Replies</h3>
+  </div>
+  <% @topic.posts.each do |post| %>
+    <hr class="clear col-sm-10 col-sm-offset-1">
+    <div class="col-sm-8 col-sm-offset-1">
+      <h4><%= link_to post.title, post_path(post) %></h4>
+    </div>
+    <div class="col-sm-2 text-center">
+      <%= post.replies.count %>
+    </div>
+  <% end %>
+  <br class="clear">
+  <br>
+  <div class="col-sm-offset-1 col-sm-5">
+    <%= link_to "Back", topics_path, class: "btn btn-default" %>
+    <% if current_user %>
+      <!-- Button trigger modal -->
+      <button class="btn btn-success" data-toggle="modal" data-target="#myModal">
+        Create Post
+      </button>
+    <% end %>
+  </div>
+  <!-- Modal -->
+  <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+          <h4 class="modal-title" id="myModalLabel">Add a Comment</h4>
+        </div>
+        <%= simple_form_for @post, :url => topic_posts_path(@topic) do |f| %>
+          <div class="modal-body">
+              <%= f.input :title %>
+              <%= f.input :body %>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            <%= f.submit "Add a Comment", :class => 'btn btn-primary btn-lesson' %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

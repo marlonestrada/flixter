@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140911233402) do
+ActiveRecord::Schema.define(version: 20140923082136) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -62,6 +62,20 @@ ActiveRecord::Schema.define(version: 20140911233402) do
   add_index "lessons", ["row_order"], name: "index_lessons_on_row_order", using: :btree
   add_index "lessons", ["section_id"], name: "index_lessons_on_section_id", using: :btree
 
+  create_table "posts", force: true do |t|
+    t.string   "title"
+    t.text     "body"
+    t.integer  "topic_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "user_id"
+    t.integer  "original_post_id"
+  end
+
+  add_index "posts", ["original_post_id"], name: "index_posts_on_original_post_id", using: :btree
+  add_index "posts", ["topic_id"], name: "index_posts_on_topic_id", using: :btree
+  add_index "posts", ["user_id"], name: "index_posts_on_user_id", using: :btree
+
   create_table "sections", force: true do |t|
     t.string   "title"
     t.integer  "course_id"
@@ -72,6 +86,15 @@ ActiveRecord::Schema.define(version: 20140911233402) do
 
   add_index "sections", ["course_id"], name: "index_sections_on_course_id", using: :btree
   add_index "sections", ["row_order"], name: "index_sections_on_row_order", using: :btree
+
+  create_table "topics", force: true do |t|
+    t.string   "name"
+    t.integer  "course_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "topics", ["course_id"], name: "index_topics_on_course_id", using: :btree
 
   create_table "users", force: true do |t|
     t.string   "email",                  default: "", null: false

@@ -1,4 +1,6 @@
 Flixter::Application.routes.draw do
+  get "replies/new"
+  get "replies/create"
   devise_for :users
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
@@ -12,6 +14,12 @@ Flixter::Application.routes.draw do
   resources :courses, only: [:index, :show] do
     resources :enrollments, only: [:create]
     resources :comments, only: [:create]
+  end
+  resources :topics do
+    resources :posts, only: [:new, :create]
+  end
+  resources :posts do
+    resources :replies, only: [:new, :create]
   end
   resources :lessons, only: [:show]
   namespace :instructor do

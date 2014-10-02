@@ -34,6 +34,7 @@
             <li><%= link_to 'See All Courses', courses_path %></li>
           </ul>
           <ul class="nav navbar-nav navbar-right">
+            <li><%= link_to "Forum", topics_path %></li>
             <% if user_signed_in? %>
               <li><%= link_to "My Dashboard", dashboards_path %></li>
               <li><%= link_to "Sign Out", destroy_user_session_path, :method => :delete %></li>
@@ -58,7 +59,7 @@
 </div> <!-- end #wrap -->
 <br class="clear">
 <br>
-
+<%= debug(params) if Rails.env.development? %>
   <div id="footer">
     <div class="container">
       <div class="col-sm-3">
