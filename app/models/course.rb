@@ -18,6 +18,10 @@ class Course < ActiveRecord::Base
     !free?
   end
 
+  def latest_posts
+    Post.latest_posts_for_course(self.id)
+  end
+
   private
 
   def build_topic

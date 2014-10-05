@@ -3,6 +3,8 @@ class LessonsController < ApplicationController
   before_action :require_enrolled_in_current_course
 
   def show
+    @course = Lesson.find(params[:id]).section.course
+    @posts = @course.latest_posts
   end
 
   private
@@ -18,3 +20,8 @@ class LessonsController < ApplicationController
     @current_lesson ||= Lesson.find(params[:id])
   end
 end
+
+# select p.* from courses c join sections s on s.course_id = c.id join lessons l on l.section_id = s.id
+#   join topics t on t.course_id = c.id join posts p on p.topic_id = t.id group by p.id;
+
+#   Category.joins(posts: [{comments: :guest}, :tags])

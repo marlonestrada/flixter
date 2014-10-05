@@ -29,6 +29,11 @@
   </div>
 </div>
 <div class="col-sm-3">
+  <% @posts.each do |post| %>
+    <div class="booyah-box col-sm-12 text-center">
+      <h3><%= link_to post.title, post_path(post) %></h3>
+    </div>
+  <% end %>
   <div class="booyah-box col-sm-12 text-center">
     <h3>Do you have a question?</h3>
     <br>
